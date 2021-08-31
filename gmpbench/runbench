@@ -64,12 +64,13 @@ if [ "$1" = -n ]
     echo "Using `./a.out`"
 
     echo "Compiling benchmarks"
+    $CC $CFLAGS gexpr.c -o gexpr $LIBS -lmvec -lm
     $CC $CFLAGS gcd.c -o gcd $LIBS
     $CC $CFLAGS gcdext.c -o gcdext $LIBS
     $CC $CFLAGS multiply.c -o multiply $LIBS
     $CC $CFLAGS divide.c -o divide $LIBS
     $CC $CFLAGS rsa.c -o rsa $LIBS
-    $CC $CFLAGS pi.c -o pi $LIBS -lm
+    $CC $CFLAGS pi.c -o pi $LIBS -lmvec -lm
   fi
 
 multiply_args="128 512 8192 131072 2097152 128,128 512,512 8192,8192 131072,131072 2097152,2097152 15000,10000 20000,10000 30000,10000 16777216,512 16777216,262144"
